@@ -2,7 +2,7 @@ package main
 
 import (
 "fmt"
-"stringhelper/stringhelper"
+stringhelper "LetsGo/stringhelper"
 )
 
 // import "strings"
@@ -51,7 +51,7 @@ func main(){
 	
 	fmt.Println("String details:")
 	
-	stringhelper.printStringDetails(input)
+	stringhelper.PrintStringDetails(input)
 	
 	fmt.Printf("\nThe Reversed String is : %s \n", Reverse("!oG ,olleH"))
 	

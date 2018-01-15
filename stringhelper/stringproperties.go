@@ -3,7 +3,7 @@ package stringhelper
 import "fmt"
 import "reflect"
 
-func printStringDetails(input string){
+func PrintStringDetails(input string){
 	//using goslices
 	//output := make([]string, len(input))
 
