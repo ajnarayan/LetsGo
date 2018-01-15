@@ -46,47 +46,16 @@ stringhelper "LetsGo/stringhelper"
 
 func main(){
 	var input = `!oG, olleH`
-	
-	fmt.Printf("Starting String Test \n")
+	fmt.Printf("\n----------------------Starting String Test-------------------------------------------\n")
 	
 	fmt.Println("String details:")
 	
 	stringhelper.PrintStringDetails(input)
 	
-	fmt.Printf("\nThe Reversed String is : %s \n", Reverse("!oG ,olleH"))
+	stringhelper.Reverse("!oG ,olleH")
 	
-	fmt.Printf("\n The Reversed String without using extra space is : %s \n", ReverseWithoutSpace(input))
-}
+	stringhelper.ReverseWithoutSpace(input)
 
-
-func Reverse(input string) string{
-	//convert String to array of rune [97 90 81]
-	convertStringToRune := []rune(input)
-
-	fmt.Printf("The String is : %s \n", string(convertStringToRune))
-	
-	l := 0
-	output := []rune(input)
-	for i :=len(input)-1; i>=0 ; i--{
-		output[l] = convertStringToRune[i]
-		l++
-	}
-
-	return string(output)
-}
-
-/*
-reverse string without using extra space
-*/
-func ReverseWithoutSpace(input string) string{
-
-	convertStringToRune := []rune(input)
-
-	//loop and swap first and last elements
-	for i,j:= 0,len(input)-1; i<len(input)/2; i,j = i+1, j-1{
-		convertStringToRune[i],convertStringToRune[j] = convertStringToRune[j],convertStringToRune[i]
-	}
-	return string(convertStringToRune)
+	fmt.Printf("\n----------------------End of String Test-------------------------------------------\n")
 
 }
-
