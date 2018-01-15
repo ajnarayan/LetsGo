@@ -1,10 +1,10 @@
 # LetsGo
 ```
-$ cd src/<project>
+$ cd LetsGo
 
 $ go build 
 
-$ ./<project>
+$ ./letsgo
 ```
 
 
