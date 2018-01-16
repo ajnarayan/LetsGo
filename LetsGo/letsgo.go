@@ -2,49 +2,11 @@ package main
 
 import (
 "fmt"
-stringhelper "LetsGo/stringhelper"
+stringhelper "LetsGo/strings"
 )
 
-// import "strings"
-/*
-	Go- slicing
-	* Very similar to python slicing (except there is no negative index)
-	A slice descriptor of an array has (pointer to array, length of segment and capacity of segment) 
-	Go source code is always UTF-8.
-	A string holds arbitrary bytes.
-	A string literal, absent byte-level escapes, always holds valid UTF-8 sequences.
-	Those sequences represent Unicode code points, called runes.
-	No guarantee is made in Go that characters in strings are normalized.
 
-
-	%x- hex byte
-	%q - ascii 
-	%s - string
-	
-	A string `⌘`(%s) is represented in hex bytes e2 8c 98 (%x), these bytes are UTF-8 encoding of 
-	hexadecimal value 2318 (%q - \u2318)
-
-	In go only String literals `` are in UTF-8
-	A string can contain other arbitrary bytes ("\xbd\xb2\x3d\xbc\x20\xe2\x8c\x98")
-	Therefore, strings can contain arbitrary bytes, but when constructed from string literals, those bytes are (almost always) UTF-8.
-
-	Using Runes: 
-	eg1: 
-	r := rune('a')
-	fmt.Println(r, string(r)) //outputs 97 a
-
-	eg2:
-	for i, r := range "abc" {
-    fmt.Printf("%d - %c (%v)\n", i, r, r)
-	}
-	outputs - 
-	0 - a (97)
-	1 - b (98)
-	2 - c (99)
-
-*/
-
-func main(){
+func StringReverse(){
 	var input = `!oG, olleH`
 	fmt.Printf("\n----------------------Starting String Test-------------------------------------------\n")
 	
@@ -58,4 +20,23 @@ func main(){
 
 	fmt.Printf("\n----------------------End of String Test-------------------------------------------\n")
 
+}
+
+func CaesarCipher(){
+	var input = `This is a test`
+	var shift = 2
+	fmt.Printf("\n----------------------Starting CaesarCipher Test-------------------------------------------\n")
+	fmt.Printf("Encrypting the characters \n")
+	var encrypted = stringhelper.EncodeCharacters(input, shift)
+	fmt.Printf("de-crypting the characters \n")
+	shift = 2
+	stringhelper.DecodeCharacters(encrypted, shift)
+	fmt.Printf("\n----------------------End of CaesarCipher Test-------------------------------------------\n")
+}
+
+func main(){
+	//StringReverse()
+	CaesarCipher()
+
+	
 }
