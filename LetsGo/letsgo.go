@@ -57,9 +57,19 @@ func LinkedList() {
 	fmt.Printf("\n----------------------Starting LinkedList Test-------------------------------------------\n")
 	//fmt.Printf("Head Node data --> (%d,%p)", head.Head.Data, head.Head.Next)
 	//linkedlist.PrintLL(&head)
-	linkedlist.Add(&head, 2)
+	linkedlist.Append(&head, 2)
 	//fmt.Printf("Head Node data --> (%d,%p)", head.Head.Data, head.Head.Next)
 	linkedlist.PrintLL(&head)
+	fmt.Println()
+	linkedlist.Remove(&head, 2)
+	linkedlist.PrintLL(&head)
+	linkedlist.Append(&head, 4)
+	length := linkedlist.Length(&head)
+	fmt.Printf("\n Length of the list is : %d", length)
+	isFound, position := linkedlist.Get(&head, 1)
+	if isFound {
+		fmt.Printf("\n The element %d is found at %d position", 1, position)
+	}
 	fmt.Printf("\n----------------------End of LinkedList Test-------------------------------------------\n")
 }
 func main() {
