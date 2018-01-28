@@ -53,7 +53,7 @@ func CaesarCipher() {
 
 func LinkedList() {
 	node := linkedlist.Node{1, nil}
-	head := linkedlist.LinkedList{&node}
+	head := linkedlist.List{&node}
 	fmt.Printf("\n----------------------Starting LinkedList Test-------------------------------------------\n")
 	//fmt.Printf("Head Node data --> (%d,%p)", head.Head.Data, head.Head.Next)
 	//linkedlist.PrintLL(&head)
@@ -70,6 +70,9 @@ func LinkedList() {
 	if isFound {
 		fmt.Printf("\n The element %d is found at %d position", 1, position)
 	}
+	fmt.Printf("\n LinkedList stack creation: \n")
+	newhead := linkedlist.BuildWithSpecialCase()
+	linkedlist.PrintLL(newhead)
 	fmt.Printf("\n----------------------End of LinkedList Test-------------------------------------------\n")
 }
 func main() {

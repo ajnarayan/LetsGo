@@ -7,11 +7,11 @@ type Node struct {
 	Next *Node
 }
 
-type LinkedList struct {
+type List struct {
 	Head *Node
 }
 
-func PrintLL(ll *LinkedList) {
+func PrintLL(ll *List) {
 	temp := ll.Head
 	if temp != nil {
 		if temp.Next == nil {
@@ -26,7 +26,15 @@ func PrintLL(ll *LinkedList) {
 	}
 }
 
-func Append(ll *LinkedList, data int) {
+// func PrintHead(head *Node) {
+// 	temp := head
+// 	for temp != nil {
+// 		fmt.Printf("[%d,%p] --> ", temp.Data, temp.Next)
+// 		temp = temp.Next
+// 	}
+// }
+
+func Append(ll *List, data int) {
 	newNode := Node{data, nil}
 	if ll.Head == nil {
 		//This is first node to be inserted
@@ -43,7 +51,7 @@ func Append(ll *LinkedList, data int) {
 	}
 }
 
-func Remove(ll *LinkedList, key int) {
+func Remove(ll *List, key int) {
 	temp := ll.Head
 	prev := ll.Head
 	if ll.Head.Data == key {
@@ -64,7 +72,7 @@ func Remove(ll *LinkedList, key int) {
 	}
 }
 
-func Length(ll *LinkedList) int {
+func Length(ll *List) int {
 	length := 0
 	temp := ll.Head
 	for temp != nil {
@@ -74,8 +82,17 @@ func Length(ll *LinkedList) int {
 	return length
 }
 
-func Get(ll *LinkedList, key int) (bool, int) {
-	temp := ll.Head
+// func LengthHead(head *Node) int {
+// 	length := 0
+// 	temp := head
+// 	for temp != nil {
+// 		length++
+// 		temp = temp.Next
+// 	}
+// 	return length
+// }
+func Get(ll *List, key int) (bool, int) {
+	temp := head(ll)
 	isFound := false
 	position := 0
 	if ll.Head == nil {
@@ -91,4 +108,29 @@ func Get(ll *LinkedList, key int) (bool, int) {
 		}
 	}
 	return isFound, position
+}
+
+func head(ll *List) *Node {
+	return ll.Head
+}
+
+/*
+Adds new node at the head of the list
+*/
+func Push(ll *List, data int) {
+	node := Node{data, nil}
+	node.Next = ll.Head
+	ll.Head = &node
+}
+
+/*
+Building a linkedlist {5,4,3,2,1} using push and tail creation
+*/
+func BuildWithSpecialCase() *List {
+	head := Node{1, nil}
+	llHead := List{&head}
+	for i := 2; i < 6; i++ {
+		Push(&llHead, i)
+	}
+	return &llHead
 }
