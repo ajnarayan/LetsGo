@@ -79,6 +79,16 @@ func (ll *List) Length() int {
 	return length
 }
 
+func (head *Node) Length() int {
+	length := 0
+	current := head
+	for current != nil {
+		length++
+		current = current.Next
+	}
+	return length
+}
+
 func Get(ll *List, key int) (bool, int) {
 	temp := head(ll)
 	isFound := false
@@ -104,6 +114,9 @@ func head(ll *List) *Node {
 
 /*
 Adds new node at the head of the list
+ The parameter has the word
+"ref" in it as a reminder that this is a "reference" (**Node) pointer to the
+head pointer instead of an ordinary (*Node) copy of the head pointer.
 */
 func Push(headref **Node, data int) {
 	node := Node{data, nil}
@@ -112,7 +125,11 @@ func Push(headref **Node, data int) {
 }
 
 /*
-Building a linkedlist {5,4,3,2,1} using push and tail creation
+Building a linkedlist {1,2,3,4,5} using push and tail creation
+Push(NIL, 2):
+   node = [2,nil]
+   node.next = *NIL
+   NIL = &[2,nil]
 */
 func BuildWithSpecialCase() *Node {
 	//Pointer to first node
@@ -120,9 +137,39 @@ func BuildWithSpecialCase() *Node {
 	//tail points to first node
 	tail := head
 
+	//we pass tail.next to push
 	for i := 2; i < 6; i++ {
-		Push(&head, i)
+		Push(&tail.Next, i)
+		tail = tail.Next
 	}
 	fmt.Printf("head is %d -- Tail is %d \n", head.Data, tail.Data)
+	return head
+}
+
+func BuildWithLocalRef() *Node {
+	head := Node{1, nil}
+	localref := &head
+	for i := 1; i < 6; i++ {
+		Push(&localref, i)
+		localref = &*localref.Next
+	}
+	return &head
+}
+
+func BuildWithDummySpecialCase() *Node {
+	dummy := Node{0, nil}
+	tail := &dummy
+	for i := 1; i < 6; i++ {
+		Push(&tail.Next, i)
+		tail = tail.Next
+	}
+	return dummy.Next
+}
+
+func AddToHead(noofitems int) *Node {
+	head := &Node{1, nil}
+	for i := 1; i < noofitems; i++ {
+		Push(&head, i)
+	}
 	return head
 }

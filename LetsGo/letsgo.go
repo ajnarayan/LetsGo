@@ -70,9 +70,16 @@ func LinkedList() {
 	if isFound {
 		fmt.Printf("\n The element %d is found at %d position", 1, position)
 	}
-	fmt.Printf("\n LinkedList stack creation: \n")
-	newhead := linkedlist.BuildWithSpecialCase()
+	var noofelements = 5
+	fmt.Printf("\n LinkedList Inserting %d elements: \n", noofelements)
+	newhead := linkedlist.AddToHead(noofelements)
 	linkedlist.PrintLL(&linkedlist.List{newhead})
+	fmt.Printf("\n LinkedList with special case using tail: \n")
+	newtailhead := linkedlist.BuildWithSpecialCase()
+	linkedlist.PrintLL(&linkedlist.List{newtailhead})
+	fmt.Printf("\n LinkedList with special case using LocalRef: \n")
+	newlocalhead := linkedlist.BuildWithSpecialCase()
+	linkedlist.PrintLL(&linkedlist.List{newlocalhead})
 	fmt.Printf("\n----------------------End of LinkedList Test-------------------------------------------\n")
 }
 func main() {
