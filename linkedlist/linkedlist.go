@@ -105,20 +105,24 @@ func head(ll *List) *Node {
 /*
 Adds new node at the head of the list
 */
-func Push(ll *List, data int) {
+func Push(headref **Node, data int) {
 	node := Node{data, nil}
-	node.Next = ll.Head
-	ll.Head = &node
+	node.Next = *headref
+	*headref = &node
 }
 
 /*
 Building a linkedlist {5,4,3,2,1} using push and tail creation
 */
-func BuildWithSpecialCase() *List {
-	head := Node{1, nil}
-	llHead := List{&head}
+func BuildWithSpecialCase() *Node {
+	//Pointer to first node
+	head := &Node{1, nil}
+	//tail points to first node
+	tail := head
+
 	for i := 2; i < 6; i++ {
-		Push(&llHead, i)
+		Push(&head, i)
 	}
-	return &llHead
+	fmt.Printf("head is %d -- Tail is %d \n", head.Data, tail.Data)
+	return head
 }

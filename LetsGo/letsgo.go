@@ -72,7 +72,7 @@ func LinkedList() {
 	}
 	fmt.Printf("\n LinkedList stack creation: \n")
 	newhead := linkedlist.BuildWithSpecialCase()
-	linkedlist.PrintLL(newhead)
+	linkedlist.PrintLL(&linkedlist.List{newhead})
 	fmt.Printf("\n----------------------End of LinkedList Test-------------------------------------------\n")
 }
 func main() {
