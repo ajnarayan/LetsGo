@@ -26,14 +26,6 @@ func PrintLL(ll *List) {
 	}
 }
 
-// func PrintHead(head *Node) {
-// 	temp := head
-// 	for temp != nil {
-// 		fmt.Printf("[%d,%p] --> ", temp.Data, temp.Next)
-// 		temp = temp.Next
-// 	}
-// }
-
 func Append(ll *List, data int) {
 	newNode := Node{data, nil}
 	if ll.Head == nil {
@@ -72,7 +64,12 @@ func Remove(ll *List, key int) {
 	}
 }
 
-func Length(ll *List) int {
+/*
+(ll *List) - receiver (appears between func and nameoffunc())
+ll is the receiver.
+Same as classes, we can use ll.legth() to access this function
+*/
+func (ll *List) Length() int {
 	length := 0
 	temp := ll.Head
 	for temp != nil {
@@ -82,15 +79,6 @@ func Length(ll *List) int {
 	return length
 }
 
-// func LengthHead(head *Node) int {
-// 	length := 0
-// 	temp := head
-// 	for temp != nil {
-// 		length++
-// 		temp = temp.Next
-// 	}
-// 	return length
-// }
 func Get(ll *List, key int) (bool, int) {
 	temp := head(ll)
 	isFound := false

@@ -64,7 +64,7 @@ func LinkedList() {
 	linkedlist.Remove(&head, 2)
 	linkedlist.PrintLL(&head)
 	linkedlist.Append(&head, 4)
-	length := linkedlist.Length(&head)
+	length := head.Length()
 	fmt.Printf("\n Length of the list is : %d", length)
 	isFound, position := linkedlist.Get(&head, 1)
 	if isFound {
