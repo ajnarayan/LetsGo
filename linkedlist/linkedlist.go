@@ -173,3 +173,34 @@ func AddToHead(noofitems int) *Node {
 	}
 	return head
 }
+
+func AppendNode(headref **Node, data int) *Node {
+	current := *headref
+	if current == nil {
+		Push(headref, data)
+	} else {
+		for current.Next != nil {
+			current = current.Next
+		}
+		Push(&current.Next, data)
+	}
+	return *headref
+}
+
+func CopyList(head *Node) *Node {
+	current := head
+	tail := head
+	i := 0
+	node := Node{head.Data, nil}
+	for current != nil {
+		if i == 0 {
+			tail = &node
+		} else {
+			tail.Next = &Node{current.Data, nil}
+			tail = tail.Next
+		}
+		current = current.Next
+		i++
+	}
+	return &node
+}

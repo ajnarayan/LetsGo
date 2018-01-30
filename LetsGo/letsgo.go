@@ -80,6 +80,9 @@ func LinkedList() {
 	fmt.Printf("\n LinkedList with special case using LocalRef: \n")
 	newlocalhead := linkedlist.BuildWithSpecialCase()
 	linkedlist.PrintLL(&linkedlist.List{newlocalhead})
+	fmt.Printf("\n LinkedList CopyLinkedList: \n")
+	copiedhead := linkedlist.CopyList(newlocalhead)
+	linkedlist.PrintLL(&linkedlist.List{copiedhead})
 	fmt.Printf("\n----------------------End of LinkedList Test-------------------------------------------\n")
 }
 func main() {
