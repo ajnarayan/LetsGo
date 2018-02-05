@@ -92,6 +92,8 @@ func LinkedListProblems(){
 	var value = 2
 	count := linkedlist.Count(node, value)
 	fmt.Printf("\n Number of times %d occurs is %d \n",value, count)
+	getNth := linkedlist.GetNth(node, value)
+	fmt.Printf("\n Element in position %d is %d \n",value, getNth)
 }
 func main() {
 	//StringReverse()
