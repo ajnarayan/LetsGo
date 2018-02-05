@@ -85,9 +85,17 @@ func LinkedList() {
 	linkedlist.PrintLL(&linkedlist.List{copiedhead})
 	fmt.Printf("\n----------------------End of LinkedList Test-------------------------------------------\n")
 }
+
+func LinkedListProblems(){
+	node := linkedlist.BuildWithSpecialCase()
+	linkedlist.PrintLL(&linkedlist.List{node})
+	var value = 2
+	count := linkedlist.Count(node, value)
+	fmt.Printf("\n Number of times %d occurs is %d \n",value, count)
+}
 func main() {
 	//StringReverse()
 	//CaesarCipher()
-	LinkedList()
-
+	//LinkedList()
+	LinkedListProblems()
 }
