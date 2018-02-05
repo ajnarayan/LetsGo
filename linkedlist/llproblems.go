@@ -20,7 +20,20 @@ func Count(head *Node, value int) int{
 	return count
 }
 
-// /*
-
-// */
-// func GetNth()
+/*
+Returns the data value stored in nth position
+*/
+func GetNth(head *Node, n int) int{
+	index := 0
+	if head != nil{
+		temp := head
+		for temp != nil && index < head.Length() {
+			if index == n{
+				return temp.Data
+			}
+			temp = temp.Next
+			index ++
+		}
+	}
+	return 999
+}
