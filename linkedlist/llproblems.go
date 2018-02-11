@@ -37,3 +37,18 @@ func GetNth(head *Node, n int) int{
 	}
 	return 999
 }
+
+/*
+ deallocates all of its memory and sets its head pointer to NULL (the empty list)
+*/
+func DeleteList(head **Node) {
+	if *head != nil{
+		current := *head
+		for current != nil{
+			next := current.Next
+			current = nil
+			current = next
+		}
+	*head = nil
+	}
+}
