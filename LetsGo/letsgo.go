@@ -100,7 +100,14 @@ func LinkedListProblems(){
 	node = linkedlist.BuildWithSpecialCase()
 	node.PrintLLHead()
 	popedelement :=linkedlist.Pop(&node)
-	fmt.Printf("The element poped from head : %d \n", popedelement)
+	fmt.Printf("\n The element poped from head : %d \n", popedelement)
+	node.PrintLLHead()
+	fmt.Printf("\n InsertNth():")
+	fmt.Printf("\n Inserting at index %d value %d ", 3, 10)
+	fmt.Printf("\n Before Insert : ")
+	node.PrintLLHead()
+	linkedlist.InsertNth(3, 10, &node)
+	fmt.Printf("\n After Insert : ")
 	node.PrintLLHead()
 }
 func main() {

@@ -1,8 +1,16 @@
 package linkedlist
+/*
+The following problems are from :http://cslibrary.stanford.edu/105/LinkedListProblems.pdf
+*/
+
+
 
 // import (
 // 	"fmt"
 // )
+
+
+
 /*
 Prints the number of times given int occurs in a list
 */
@@ -66,4 +74,29 @@ func Pop(head **Node) int{
 		temp = nil
 	}
 	return returnval
+}
+/*
+insert a new node at any index within a list.
+*/
+func InsertNth(index int, data int, headref **Node){
+	head := *headref
+	sizeoflist := head.Length()
+	if index >=0 && index <= sizeoflist + 1{
+		if index == 0{
+			//append to head
+			Push(headref, data)
+		}else{
+			current := head 
+			prev := current
+			for i :=0; i< sizeoflist ; i++{
+				if i==index{
+					break
+				}
+				prev = current
+				current = current.Next					
+			}
+			newNode := Node{data, current}
+			prev.Next = &newNode
+		}
+	}
 }
