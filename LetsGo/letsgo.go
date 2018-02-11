@@ -96,7 +96,12 @@ func LinkedListProblems(){
 	fmt.Printf("\n Element in position %d is %d \n",value, getNth)
 	linkedlist.DeleteList(&node)
 	linkedlist.PrintLL(&linkedlist.List{node})
-
+	fmt.Printf("\n Pop(): \n")
+	node = linkedlist.BuildWithSpecialCase()
+	node.PrintLLHead()
+	popedelement :=linkedlist.Pop(&node)
+	fmt.Printf("The element poped from head : %d \n", popedelement)
+	node.PrintLLHead()
 }
 func main() {
 	//StringReverse()

@@ -52,3 +52,18 @@ func DeleteList(head **Node) {
 	*head = nil
 	}
 }
+/*
+ Pop() takes a non-empty list, deletes the head node, and returns the head node's data
+*/
+func Pop(head **Node) int{
+	returnval := 0
+	if *head == nil{
+		return returnval
+	}else{
+		temp := *head
+		returnval = temp.Data
+		*head = temp.Next
+		temp = nil
+	}
+	return returnval
+}

@@ -26,6 +26,21 @@ func PrintLL(ll *List) {
 	}
 }
 
+func (head *Node) PrintLLHead(){
+	temp:= head
+	if temp != nil{
+		if temp.Next == nil {
+			fmt.Printf("[%d,%p] --> ", temp.Data, temp.Next)
+		} else {
+			for temp != nil {
+				fmt.Printf("[%d,%p] --> ", temp.Data, temp.Next)
+				temp = temp.Next
+			}
+		}
+		fmt.Printf("nil")
+	}
+}
+
 func Append(ll *List, data int) {
 	newNode := Node{data, nil}
 	if ll.Head == nil {
@@ -142,7 +157,7 @@ func BuildWithSpecialCase() *Node {
 		Push(&tail.Next, i)
 		tail = tail.Next
 	}
-	fmt.Printf("head is %d -- Tail is %d \n", head.Data, tail.Data)
+	fmt.Printf("Building LL with head=%d, Tail=%d and size=%d \n", head.Data, tail.Data, head.Length())
 	return head
 }
 
