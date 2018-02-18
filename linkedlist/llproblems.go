@@ -76,7 +76,8 @@ func Pop(head **Node) int{
 	return returnval
 }
 /*
-insert a new node at any index within a list.
+A more general version of Push(). Given a list, an index 'n' in the range 0..length,and a data element, 
+add a new node to the list so that it has the given index.
 */
 func InsertNth(index int, data int, headref **Node){
 	head := *headref
@@ -98,5 +99,33 @@ func InsertNth(index int, data int, headref **Node){
 			newNode := Node{data, current}
 			prev.Next = &newNode
 		}
+	}
+}
+
+/*
+given a list that is sorted in increasing order, and a single node, 
+inserts the node into the correct sorted position in the list
+*/
+func SortedInsert(newNode *Node, headref **Node){
+	head := *headref
+	if head != nil && newNode !=nil{
+		current := head
+		prev := current
+		if head.Length() == 1{
+			if head.Data > newNode.Data{
+				Push(headref, newNode.Data)
+			}else{
+				
+			}
+		} 
+		for i:=0; i<head.Length(); i++ {
+			if newNode.Data>prev.Data && newNode.Data < current.Data{
+				break
+			}
+			prev = current
+			current = current.Next
+		}
+		prev.Next = newNode
+		newNode.Next = current
 	}
 }

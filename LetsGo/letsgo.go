@@ -109,6 +109,14 @@ func LinkedListProblems(){
 	linkedlist.InsertNth(3, 10, &node)
 	fmt.Printf("\n After Insert : ")
 	node.PrintLLHead()
+	fmt.Printf("\n SortedInsert():")
+	newNode := linkedlist.Node{1,nil}
+	fmt.Printf("\n Inserting new Node with value %d", 1)
+	fmt.Printf("\n Before Insert : ")
+	node.PrintLLHead()
+	linkedlist.SortedInsert(&newNode, &node)
+	fmt.Printf("\n After Insert : ")
+	node.PrintLLHead()
 }
 func main() {
 	//StringReverse()
